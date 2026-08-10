@@ -81,6 +81,11 @@ def bfs_traversal(graph, source_node):
     print("-" * 40)
     print(f"FINAL BFS PATH: {' -> '.join(visited)}")
 
+    if len(visited) < len(graph):
+            unvisited_nodes = set(graph.keys()) - set(visited)
+            print(f"\n[!] Note: The graph is disconnected. The nodes {unvisited_nodes} could not be reached from source node '{source_node}'itself.")
+    
+
 
 def dfs_traversal(graph, source_node):
     print("\n" + "="*40)
@@ -119,3 +124,5 @@ def dfs_traversal(graph, source_node):
     if len(visited) < len(graph):
         unvisited_nodes = set(graph.keys()) - set(visited)
         print(f"\n[!] Note: The graph is disconnected. The nodes {unvisited_nodes} could not be reached from source node '{source_node}'itself.")
+bfs_traversal(graph, source_node)
+dfs_traversal(graph, source_node)
