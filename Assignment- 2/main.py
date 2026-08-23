@@ -32,6 +32,9 @@ def find_all_paths_and_least_cost(graph, source, goal):
         if is_dead_end:
             print(f"🚫 DEAD END (Cannot Proceed): {' -> '.join(current_path)} (Cost: {current_cost})")
 
+        print("Current paths to go on")
+        for i in range(0,len(stack)):
+            print(f"{' -> '.join(stack[i][1])} (Cost: {stack[i][2]})")
     # --- Phase 2: Declare the Winner ---
     print("\n" + "="*50)
     print("--- Final Analysis ---")
