@@ -83,7 +83,9 @@ def beam_search(graph, heuristics, source, goal, beam_width):
                 return
                 
             # Generate all possible next moves for this node
-            for neighbor in graph.get(current_node, []):
+            neighbours= graph.get(current_node, []).reverse()
+            while(neighbours) :
+                neighbor=neighbours.pop()
                 if neighbor not in path: # Prevent immediate backtracking
                     new_path = path + [neighbor]
                     next_level_candidates.append((heuristics[neighbor], neighbor, new_path))
